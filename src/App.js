@@ -8,13 +8,13 @@ import Cart from './components/all-components/cart/Cart';
 import CartDetails from './components/all-components/cart-details/CartDetails';
 import { addItemToCart } from './actions/addToCart.action';
 import { connect } from 'react-redux';
+import { allProducts } from './actions/allProducts.action';
+
 
 
 // Class Component: - Smart/ Container component
 class App extends Component {
   state = {
-    productList: data,
-    cartList: [],
     displayType: 'allProducts',
   };
 
@@ -28,6 +28,11 @@ class App extends Component {
   //     cartList: newCartDetails,
   //   });
   // }
+
+  componentDidMount() {
+    const { _allProducts } = this.props;
+    _allProducts(data);
+  }
 
   addItemToCart = (item) => {
     const { _addItemToCart } = this.props;
@@ -48,8 +53,8 @@ class App extends Component {
   }
 
   render() {
-    const { productList,  displayType } = this.state;
-    const { allCartItems } = this.props;
+    const { displayType } = this.state;
+    const { allCartItems, productList } = this.props;
     return (
       <div className="App">
         <Header msg="Shop here!!" className="head_container">
@@ -77,15 +82,16 @@ class App extends Component {
 
 const mapStoreToProps = (store) => ({
   allCartItems: store.cart.items,
+  productList: store.allProducts.items,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   _addItemToCart: (item) => {
     dispatch(addItemToCart(item))
   },
-  // _allProducts: (data) => {
-  //   dispatch(allProducts(data))
-  // },
+  _allProducts: (data) => {
+    dispatch(allProducts(data))
+  },
 })
 
 export default connect(mapStoreToProps,mapDispatchToProps)(App);
