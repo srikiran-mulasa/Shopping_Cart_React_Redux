@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
     return(
-        <footer class="page-footer">
+        <footer className="page-footer">
           {/* <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -20,10 +20,10 @@ function Footer() {
               </div>
             </div>
           </div> */}
-          <div class="footer-copyright">
-            <div class="container">
+          <div className="footer-copyright">
+            <div className="container">
             © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
         </footer>

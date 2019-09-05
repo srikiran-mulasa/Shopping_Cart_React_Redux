@@ -10,18 +10,17 @@ class Products extends React.Component {
         const { allProducts } = this.props;
         return (
             <div className="container">
-                All Products available here :-
-                <div class="row">
+                <div className="row">
                     {allProducts.map((product, index) => (
                         <div className="col s4" key={index}>
 
-                            <div class="card">
-                                <div class="card-image" >
+                            <div className="card">
+                                <div className="card-image" >
                                     <img src={product.path} alt={product.name} className="productImage" />
-                                    <span class="card-title">Card Title</span>
-                                    <a onClick={(e) => this.handleAddToCart(e, product)} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                                    <span className="card-title">Card Title</span>
+                                    <a onClick={(e) => this.handleAddToCart(e, product)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                                 </div>
-                                <div class="card-content">
+                                <div className="card-content">
                                     <p>
                                         {product.name}
                                     </p>

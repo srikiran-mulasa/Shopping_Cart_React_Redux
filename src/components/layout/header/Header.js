@@ -6,9 +6,9 @@ function Header(props) {
     return (
         <div className="head_container">
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">{props.msg}</a>
-                    <ul class="right hide-on-med-and-down">
+                <div className="nav-wrapper">
+                    <a href="#" className="brand-logo">{props.msg}</a>
+                    <ul className="right hide-on-med-and-down">
                         {props.children}
                     </ul>
                 </div>

@@ -6,6 +6,9 @@ import Footer from './components/layout/footer/Footer';
 import Products from './components/all-components/product/Products';
 import Cart from './components/all-components/cart/Cart';
 import CartDetails from './components/all-components/cart-details/CartDetails';
+import { addItemToCart } from './actions/addToCart.action';
+import { connect } from 'react-redux';
+
 
 // Class Component: - Smart/ Container component
 class App extends Component {
@@ -15,15 +18,20 @@ class App extends Component {
     displayType: 'allProducts',
   };
 
+  // addItemToCart = (item) => {
+  //   console.log(' added item =', item);
+  //   const { cartList } = this.state;
+  //   const newCartDetails = [...cartList];
+  //   newCartDetails.push(item);
+  //   console.log('New Added Items = ', newCartDetails);
+  //   this.setState({
+  //     cartList: newCartDetails,
+  //   });
+  // }
+
   addItemToCart = (item) => {
-    console.log(' added item =', item);
-    const { cartList } = this.state;
-    const newCartDetails = [...cartList];
-    newCartDetails.push(item);
-    console.log('New Added Items = ', newCartDetails);
-    this.setState({
-      cartList: newCartDetails,
-    });
+    const { _addItemToCart } = this.props;
+    _addItemToCart(item);
   }
 
   handleDisplayType = () => {
@@ -40,13 +48,14 @@ class App extends Component {
   }
 
   render() {
-    const { productList, cartList, displayType } = this.state;
+    const { productList,  displayType } = this.state;
+    const { allCartItems } = this.props;
     return (
       <div className="App">
         <Header msg="Shop here!!" className="head_container">
           {/* <h5>Amazing Tech gadgeds here !! </h5> */}
           <Cart
-            cartDetails={cartList}
+            cartDetails={allCartItems}
             showDetails={this.handleDisplayType}
             displayType={displayType}
           />
@@ -58,7 +67,7 @@ class App extends Component {
           />
         )}
         {displayType !== 'allProducts' && (
-          <CartDetails cartItems={cartList} />
+          <CartDetails cartItems={allCartItems} />
         )}
         <Footer />
       </div>
@@ -66,4 +75,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStoreToProps = (store) => ({
+  allCartItems: store.cart.items,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  _addItemToCart: (item) => {
+    dispatch(addItemToCart(item))
+  },
+  // _allProducts: (data) => {
+  //   dispatch(allProducts(data))
+  // },
+})
+
+export default connect(mapStoreToProps,mapDispatchToProps)(App);

@@ -32,13 +32,13 @@ function CartDetails(props) {
     }
     return (
         <div className="container">
-            <div class="row">
+            <div className="row">
                 {props.cartItems.map(item => (
                     <div className="col s4" key={item.id}>
-                        <div class="card">
-                            <div class="card-image" >
+                        <div className="card">
+                            <div className="card-image" >
                                 <img src={item.path} alt={item.name} className="productImage" />
-                                <span class="card-title">{item.name}</span>
+                                <span className="card-title">{item.name}</span>
                             </div>
                             <div class="card-content">
                                 <p>

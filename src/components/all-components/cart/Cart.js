@@ -4,9 +4,9 @@ function Cart(props) {
     return (
         <div>
             <li>
-                <button class="waves-effect waves-light btn" onClick={props.showDetails}>
+                <button className="waves-effect waves-light btn" onClick={props.showDetails}>
                     {props.displayType === 'allProducts' ? 'Show Cart Items' : 'All Products'}
-                    <span class="new badge">{props.cartDetails.length}</span>
+                    <span className="new badge">{props.cartDetails.length}</span>
                 </button>
             </li>
         </div>
