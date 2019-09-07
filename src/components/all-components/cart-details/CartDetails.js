@@ -1,35 +1,8 @@
 import React from 'react';
-
-
-
+import Counter from '../counter/Counter';
 
 function CartDetails(props) {
 
-
-    var count = 0;
-
-    const handleClickCount = () => {
-        // this.setState({
-        //     count: this.state.count + 1,
-        // });
-
-        const { count } = this.state;
-        this.setState({
-            count: count + 1,
-        });
-    }
-    const handleClickCountDecrement = () => {
-        // if (this.state.count === 0) return;
-        // this.setState({
-        //     count: this.state.count - 1,
-        // });
-
-        const { count } = this.state;
-        if (count === 0) return;
-        this.setState({
-            count: count - 1,
-        });
-    }
     return (
         <div className="container">
             <div className="row">
@@ -38,22 +11,18 @@ function CartDetails(props) {
                         <div className="card">
                             <div className="card-image" >
                                 <img src={item.path} alt={item.name} className="productImage" />
-                                <span className="card-title">{item.name}</span>
                             </div>
-                            <div class="card-content">
-                                <p>
-                                    {item.name}
-                                </p>
-
-                                {/* <button onClick={handleClickCount}>
-                                    next
-                                </button>
-                                <div>
-                                    {count}
+                            <div className="card-content">
+                                <div className="row">
+                                    <div className="col s6">
+                                        <p>
+                                            {item.name}
+                                        </p>
+                                    </div>
+                                    <div className="col s6">
+                                        <Counter />
+                                    </div>
                                 </div>
-                                <button onClick={handleClickCountDecrement}>
-                                    prev
-                                </button> */}
                             </div>
                         </div>
                     </div>

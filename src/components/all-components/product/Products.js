@@ -17,7 +17,6 @@ class Products extends React.Component {
                             <div className="card">
                                 <div className="card-image" >
                                     <img src={product.path} alt={product.name} className="productImage" />
-                                    <span className="card-title">Card Title</span>
                                     <a onClick={(e) => this.handleAddToCart(e, product)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                                 </div>
                                 <div className="card-content">

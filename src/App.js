@@ -6,10 +6,9 @@ import Footer from './components/layout/footer/Footer';
 import Products from './components/all-components/product/Products';
 import Cart from './components/all-components/cart/Cart';
 import CartDetails from './components/all-components/cart-details/CartDetails';
-import { addItemToCart } from './actions/addToCart.action';
 import { connect } from 'react-redux';
+import { addItemToCart } from './actions/addToCart.action';
 import { allProducts } from './actions/allProducts.action';
-
 
 
 // Class Component: - Smart/ Container component

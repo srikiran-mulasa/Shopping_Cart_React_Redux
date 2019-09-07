@@ -1,4 +1,5 @@
 import React from 'react';
+import SignUp from '../../all-components/signup/SignUp';
 
 // Function component / dumb component
 function Header(props) {
@@ -9,7 +10,10 @@ function Header(props) {
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo">{props.msg}</a>
                     <ul className="right hide-on-med-and-down">
-                        {props.children}
+                        <li>{props.children}</li>
+                        <li>
+                        <SignUp />
+                        </li>
                     </ul>
                 </div>
             </nav>
