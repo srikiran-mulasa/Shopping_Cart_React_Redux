@@ -1,17 +1,26 @@
 import React from 'react';
 import './product.css';
+import data from '../../../dataList';
+import { connect } from 'react-redux';
+import { allProducts } from '../../../actions/allProducts.action';
 
 class Products extends React.Component {
+
+    componentDidMount() {
+        const { _allProducts } = this.props;
+        _allProducts(data);
+    }
     handleAddToCart = (e, item) => {
         const { addToCart } = this.props;
         addToCart(item);
     }
+
     render() {
-        const { allProducts } = this.props;
+        const { productList } = this.props;
         return (
             <div className="container">
                 <div className="row">
-                    {allProducts.map((product, index) => (
+                    {productList.map((product, index) => (
                         <div className="col s4" key={index}>
 
                             <div className="card">
@@ -33,4 +42,14 @@ class Products extends React.Component {
     }
 }
 
-export default Products;
+const mapStoreToProps = (store) => ({
+    productList: store.allProducts.items,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    _allProducts: (data) => {
+        dispatch(allProducts(data))
+    },
+})
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Products);
