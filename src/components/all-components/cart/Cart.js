@@ -9,26 +9,27 @@ class Cart extends React.Component {
         _addItemToCart(item);
     }
 
-    handleDisplayType = () => {
-        const { displayType } = this.state;
-        if (displayType === 'allProducts') {
-          this.setState({
-            displayType: 'cartList',
-          });
-        } else {
-          this.setState({
-            displayType: 'allProducts',
-          });
-        }
-      }
+    // handleDisplayType = () => {
+    //     const { displayType } = this.state;
+    //     if (displayType === 'allProducts') {
+    //       this.setState({
+    //         displayType: 'cartList',
+    //       });
+    //     } else {
+    //       this.setState({
+    //         displayType: 'allProducts',
+    //       });
+    //     }
+    //   }
 
     render() {
         const { allCartItems } = this.props;
         return (
-            <button className="waves-effect waves-light btn" onClick={this.handleDisplayType}>
-                {/* {props.displayType === 'allProducts' ? 'Show Cart Items' : 'All Products'} */}
-                <span className="new badge">{allCartItems.length}</span>
-            </button>
+            // <button className="waves-effect waves-light btn" onClick={this.handleDisplayType}>
+            //     {/* {this.state.displayType === 'allProducts' ? 'Show Cart Items' : 'All Products'} */}
+                
+            // </button>
+            <span className="new badge">{allCartItems.length}</span>
         )
     }
 }

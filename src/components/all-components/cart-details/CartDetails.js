@@ -12,6 +12,7 @@ class CartDetails extends React.Component {
     }
     render() {
         const { allCartItems } = this.props;
+        console.log(allCartItems);
         return (
             <div className="container">
                 <div className="row">

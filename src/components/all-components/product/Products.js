@@ -3,6 +3,8 @@ import './product.css';
 import data from '../../../dataList';
 import { connect } from 'react-redux';
 import { allProducts } from '../../../actions/allProducts.action';
+import { addItemToCart } from '../../../actions/addToCart.action';
+
 
 class Products extends React.Component {
 
@@ -10,9 +12,10 @@ class Products extends React.Component {
         const { _allProducts } = this.props;
         _allProducts(data);
     }
+  
     handleAddToCart = (e, item) => {
-        const { addToCart } = this.props;
-        addToCart(item);
+        const { _addItemToCart } = this.props;
+        _addItemToCart(item);
     }
 
     render() {
@@ -50,6 +53,9 @@ const mapDispatchToProps = (dispatch) => ({
     _allProducts: (data) => {
         dispatch(allProducts(data))
     },
+    _addItemToCart: (item) => {
+        dispatch(addItemToCart(item))
+    }
 })
 
 export default connect(mapStoreToProps, mapDispatchToProps)(Products);
